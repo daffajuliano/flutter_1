@@ -110,14 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Toast.show("Belum ada gambar / lokasi", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     } else {
       var uri = Uri.parse("http://05a0d01a.ngrok.io/api/saveUsers");
-      // String image = base64Encode(_imageFile.readAsBytesSync());
-      // String fileName = _imageFile.path.split("/").last;
-
-      // var request = http.post(uri, body: {
-      //   "location" : address, 
-      //   "image" : image,
-      //   "file_name" : fileName,
-      // });
+      
       final mimeDataType = lookupMimeType(_imageFile.path, headerBytes: [0xFF, 0xD8]).split('/');
       var request = http.MultipartRequest("POST", uri);
       request.fields['latitude'] = lat.toString();
